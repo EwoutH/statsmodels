@@ -25,6 +25,9 @@ jobs:
       python310_win_latest:
         python.version: '3.10'
         python.architecture: 'x64'
+      python311_win_latest:
+        python.version: '3.11-dev'
+        python.architecture: 'x64'
     maxParallel: 10
 
   steps:
@@ -32,6 +35,7 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: '$(python.architecture)'
+      allowUnstable: true # Can be removed once Python 3.11.0 is  released
     displayName: 'Use Python $(python.version)'
 
   - script: |
@@ -39,7 +43,7 @@ jobs:
     displayName: 'Update essentials'
 
   - script: |
-      python -m pip install -r requirements.txt 
+      python -m pip install -r requirements.txt
       python -m pip install -r requirements-dev.txt
     displayName: 'Install dependencies'
 
