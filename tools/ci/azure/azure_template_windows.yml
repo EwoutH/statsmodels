@@ -35,7 +35,7 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: '$(python.architecture)'
-      allowUnstable: true # Can be removed once Python 3.11.0 is  released
+      allowUnstable: true # Can be removed once Python 3.11.0 is released
     displayName: 'Use Python $(python.version)'
 
   - script: |
