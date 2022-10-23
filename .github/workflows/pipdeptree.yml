@@ -9,5 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
-    - run: pip install pipdeptree
+    - run: pip install pipdeptree graphviz
     - run: pipdeptree --reverse --packages lxml
+    - run: pipdeptree --reverse lxml
+    - run: pipdeptree
+    - run: pipdeptree --graph-output svg > dependencies.svg
+    - uses: actions/upload-artifact@v3
+      with:
+        name: dependencies_svg
+        path: dependencies.svg
