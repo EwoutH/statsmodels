@@ -15,7 +15,7 @@ jobs:
     - run: pip install pipdeptree graphviz statsmodels
     - run: pipdeptree --reverse --packages lxml
     - run: pipdeptree --packages statsmodels
-    - run: pipdeptree --graph-output svg > dependencies.svg
+    - run: pipdeptree --packages statsmodels --graph-output svg > dependencies.svg
     - uses: actions/upload-artifact@v3
       with:
         name: dependencies_svg
